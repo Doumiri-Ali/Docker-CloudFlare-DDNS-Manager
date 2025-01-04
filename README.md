@@ -32,7 +32,7 @@ git clone https://github.com/yourusername/cloudflare-ddns-manager.git
 cd cloudflare-ddns-manager
 ```
 
-3. Configure your `.env` file:
+2. Configure your `.env` file:
 ```env
 # Cloudflare Credentials
 AUTH_EMAIL=your-email@example.com
@@ -60,7 +60,7 @@ SLACK_CHANNEL=#your-channel
 DISCORD_URI=your-discord-webhook-url
 ```
 
-4. Start the container:
+3. Start the container:
 ```bash
 docker compose up -d
 ```
