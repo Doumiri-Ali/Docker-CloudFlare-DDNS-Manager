@@ -1,0 +1,18 @@
+version: '1'
+services:
+  ddns-updater:
+    image: alpine:latest
+    container_name: ddns-updater
+    restart: always
+    env_file: 
+      - .env
+    deploy:
+      resources:
+        limits:
+          cpus: "0.1"
+          memory: "50M"
+    volumes:
+      - ./ddns-updater.sh:/ddns-updater.sh:ro
+    entrypoint: ["/bin/sh", "-c", "apk add --no-cache curl bash && while true; do bash /ddns-updater.sh 2>&1; sleep 60; done"]
+    network_mode: "host" # Allows direct access to the internet (if required)
+
