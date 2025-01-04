@@ -32,11 +32,6 @@ git clone https://github.com/yourusername/cloudflare-ddns-manager.git
 cd cloudflare-ddns-manager
 ```
 
-2. Copy the example environment file:
-```bash
-cp .env.example .env
-```
-
 3. Configure your `.env` file:
 ```env
 # Cloudflare Credentials
