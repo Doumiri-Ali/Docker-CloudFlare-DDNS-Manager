@@ -43,10 +43,14 @@ send_notification() {
     
     # Send to Telegram
     if [[ $telegram_token != "" && $telegram_chat != "" ]]; then
-        curl -s -X POST "https://api.telegram.org/bot${telegram_token}/sendMessage" \
+        echo "DEBUG: Sending Telegram notification..."
+        echo "DEBUG: Bot Token: ${telegram_token:0:10}...${telegram_token: -4}"
+        echo "DEBUG: Chat ID: $telegram_chat"
+        telegram_response=$(curl -s -X POST "https://api.telegram.org/bot${telegram_token}/sendMessage" \
         -d "chat_id=${telegram_chat}" \
         -d "text=${message}" \
-        -d "parse_mode=HTML" > /dev/null
+        -d "parse_mode=HTML")
+        echo "DEBUG: Telegram API Response: $telegram_response"
     fi
 }
 
