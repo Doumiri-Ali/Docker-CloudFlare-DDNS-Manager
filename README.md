@@ -81,11 +81,31 @@ docker compose up -d
 ### Notification Setup
 
 #### Telegram
-1. Create a bot via [@BotFather](https://t.me/botfather)
-2. Get chat ID by:
-   - Messaging your bot
-   - Visiting: `https://api.telegram.org/bot<YourBOTToken>/getUpdates`
-   - Finding the `chat.id` in the response
+1. Create a bot via [@BotFather](https://t.me/botfather):
+   - Start a chat with @BotFather
+   - Send `/newbot`
+   - Choose a name for your bot
+   - Choose a username (must end in 'bot')
+   - Save the API token provided
+
+2. Get your chat ID (two methods):
+   
+   Method 1 (Easiest):
+   - Start a chat with [@userinfobot](https://t.me/userinfobot)
+   - It will reply with your chat ID
+
+   Method 2 (Alternative):
+   - Start a chat with your new bot
+   - Send it any message
+   - Visit: `https://api.telegram.org/bot<YourBOTToken>/getUpdates`
+   - Look for `"chat":{"id":XXXXXXXXX}` in the response
+   - The number (XXXXXXXXX) is your chat ID
+
+3. Configure your `.env` file with:
+   ```env
+   TELEGRAM_BOT_TOKEN=your_bot_token
+   TELEGRAM_CHAT_ID=your_chat_id  # Just the number, e.g., 123456789
+   ```
 
 #### Discord
 1. Server Settings > Integrations
