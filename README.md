@@ -110,22 +110,6 @@ docker compose up -d
 | REPORT_SUCCESS | Send success notifications | true |
 | REPORT_ERROR | Send error notifications | true |
 
-## Docker Compose Example 🐳
-
-```yaml
-version: '3'
-services:
-  ddns-updater:
-    image: alpine:latest
-    container_name: ddns-updater
-    restart: always
-    env_file: 
-      - .env
-    volumes:
-      - ./ddns-updater.sh:/ddns-updater.sh:ro
-    entrypoint: ["/bin/sh", "-c", "apk add --no-cache curl bash && while true; do bash /ddns-updater.sh 2>&1; sleep 60; done"]
-```
-
 ## Logs Example 📊
 
 ```log
